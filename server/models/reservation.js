@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const ReservationSchema = new Schema({
-  reservation: { type: String},
+//   reservation: { type: String},
   guest: {
     type: Schema.Types.ObjectId,
     ref: 'guest'
@@ -24,4 +24,5 @@ ReservationSchema.statics.findreservation = (id) => {
     .then(reservation => reservation.id);
 };
 
-module.exports = mongoose.model('Reservation', ReservationSchema);
+const Reservation = mongoose.model('Reservation', ReservationSchema);
+module.exports = Reservation;

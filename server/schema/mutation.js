@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql;
 const mongoose = require('mongoose');
-const Reservation = mongoose.model('reservation');
+const Reservation = require('../models/reservation');
 const ReservationType = require('./reservation_type');
 
 
@@ -26,6 +26,13 @@ const mutation = new GraphQLObjectType({
           departureDate: args.departureDate
         });
         return reservation.save();
+      }
+    },
+    deleteReservation: {
+      type: ReservationType,
+      args: { id: {type: GraphQLID}},
+      resolve(parentValue, { id }) {
+        return Reservation.remove({_id: id});
       }
     }
   }

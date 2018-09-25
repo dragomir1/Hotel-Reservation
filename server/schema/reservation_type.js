@@ -6,7 +6,7 @@ const {
   GraphQLID,
   GraphQLString
 } = graphql;
-const Reservation = mongoose.model('reservation');
+const Reservation = require('../models/reservation');
 
 const ReservationType = new GraphQLObjectType({
   name: 'ReservationType',

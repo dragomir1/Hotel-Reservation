@@ -7,7 +7,7 @@ const {
   GraphQLID,
 } = graphql;
 const ReservationType = require('./reservation_type');
-const Reservation = mongoose.model('reservation');
+const Reservation = require('../models/reservation');
 
 
 const RootQuery = new GraphQLObjectType({
